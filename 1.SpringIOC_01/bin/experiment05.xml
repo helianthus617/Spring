@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 实验5：配置通过静态工厂方法创建的bean、实例工厂方法创建的bean、FactoryBean★
+静态工厂:工厂本身不创建对象;通过静态方法调用, 对象=工厂类.工厂方法名();
+静态工厂:工厂本身需要创建对象;工厂类  工厂类对象 =new 工厂类(), 工厂类对象.getXXX(); -->
+
+
+<!--静态工厂的使用
+ -->
+<bean id="airPlane01" class="com.atguigu.factory.AirPlaneStaticFactoryExperiment05"
+factory-method="getAirPlane">
+<constructor-arg value="李四"></constructor-arg>
+</bean>
+
+<!-- 实例工厂的使用
+1，先配置出实例工厂对象
+2，配置我们要创建AirPlane使用哪个工厂实例
+ factory-bean 指定哪个工厂实例
+ factory-method 使用哪个工厂方法
+ <constructor-arg 参数值
+ -->
+<bean id="airPlaneInstanceFactory" 
+class="com.atguigu.factory.AirPlaneInstanceFactoryExperiment05"></bean>
+
+<bean id="airPlane02" class="com.atguigu.bean.AirPlane_Experiment05"
+factory-bean="airPlaneInstanceFactory" 
+factory-method="getAirPlane">
+<constructor-arg value="小西"></constructor-arg>
+</bean>
+
+<!--实现FactoryBean接口的类是Spring可以认识的工厂类,
+spring会自动调用工厂方法创建实例
+实例工厂方法创建的bean、FactoryBean★  ,
+无论是单实例还是多实例都是getbean时创建对象  -->
+<bean id="myFactoryBeanImple"
+ class="com.atguigu.factory.MyFactoryBeanImpleExperiment05" > </bean>
+</beans>

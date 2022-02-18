@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+<!-- 基于配置的AOP -->
+<!-- 先将组件注册进ioc容器 -->
+<bean id="myMathCalculator_01" class="com.atguigu.impl.MyMathCalculator_01"></bean>
+<bean id="logUtils01" class="com.atguigu.utils.LogUtils01"></bean>
+<bean id="validateAspect01" class="com.atguigu.utils.ValidateAspect01"></bean>
+
+<aop:config>
+<aop:pointcut expression="execution(public int  com.atguigu.impl.MyMathCalcu*tor_01.*(int, *))" id="mypointcut"/>
+	<!--指定切面 -->	
+	<aop:aspect ref="logUtils01">
+	<aop:before method="logStart" pointcut="execution(public int  com.atguigu.impl.MyMathCalcu*tor_01.*(int, *))"/>
+	<aop:after-returning method="logReturn" pointcut-ref="mypointcut" returning="arg1"/>
+	<aop:after-throwing method="logException" pointcut-ref="mypointcut" throwing="e"/>
+	<aop:after method="logEnd"  pointcut-ref="mypointcut" />
+	<aop:around method="myAround" pointcut-ref="mypointcut" />
+	</aop:aspect>
+	
+	<aop:aspect ref="validateAspect01">
+	<aop:before method="logStart" pointcut="execution(public int  com.atguigu.impl.MyMathCalcu*tor_01.*(int, *))"/>
+	<aop:after-returning method="logReturn" pointcut-ref="mypointcut" returning="arg1"/>
+	<aop:after-throwing method="logException" pointcut-ref="mypointcut" throwing="e"/>
+	<aop:after method="logEnd"  pointcut-ref="mypointcut" />
+	</aop:aspect>
+</aop:config>
+</beans>

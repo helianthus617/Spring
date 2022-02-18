@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!--实验8：bean之间的依赖
+  	问题1 下面三个是否有顺序创建 
+  	默认创建顺序是按照配置的顺序进行创建
+Book_Experiment08 无参构造器输出
+Car_Experiment08 无参构造器输出
+我是Experiment08 无参构造器输出的
+
+  <bean id="book" class="com.atguigu.bean.Book_Experiment08"></bean>	
+  <bean id="car" class="com.atguigu.bean.Car_Experiment08"></bean>
+  <bean id="person" class="com.atguigu.bean.Person_Experiment08"></bean>  -->
+
+ <bean id="book" class="com.atguigu.bean.Book_Experiment08" depends-on="person,car"></bean>	
+  <bean id="car" class="com.atguigu.bean.Car_Experiment08"></bean>
+  <bean id="person" class="com.atguigu.bean.Person_Experiment08"></bean>  
+
+ </beans>

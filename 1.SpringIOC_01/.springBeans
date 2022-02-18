@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.4.0.201310051539-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>conf/experiment01.xml</config>
+		<config>conf/experiment02.xml</config>
+		<config>conf/experiment03.xml</config>
+		<config>conf/experiment04.xml</config>
+		<config>conf/experiment05.xml</config>
+		<config>conf/experiment06.xml</config>
+		<config>conf/experiment07.xml</config>
+		<config>conf/experiment08.xml</config>
+		<config>conf/experiment09.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

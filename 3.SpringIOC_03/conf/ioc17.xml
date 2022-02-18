@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<!-- 
+实验17：使用context:exclude-filter指定扫描包时不包含的类
+-->
+<context:component-scan base-package="com.atguigu">
+<!-- 扫描时可以排除一些不要的组件
+	1).type="annotation": 指定排除规则,按照注解进行排除.标注了指定注解的不要加入容器中
+		expression="注解全类名"
+ <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>		
+	2).type="assignable": 指定排除规则,按照指定的类进行排除
+		expression="全类名"	
+ <context:exclude-filter type="assignable" expression="com.atguigu.dao.BookDao_Exper17"/>			
+ -->
+  <context:exclude-filter type="assignable" expression="com.atguigu.dao.BookDao_Exper17"/>		
+
+</context:component-scan>
+</beans>

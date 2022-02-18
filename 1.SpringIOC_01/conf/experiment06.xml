@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 实验6：通过继承实现bean配置信息的重用 -->
+ <bean id="person01" class="com.atguigu.bean.Person_Experiment06">
+	<property name="lastName" value="张三"></property>
+	<property name="age" value="18"></property>
+	<property name="gender" value="男"></property>
+	<property name="email" value="xxx@qq.com"></property>
+ </bean>
+ <bean id="person02" class="com.atguigu.bean.Person_Experiment06" parent="person01">
+<!--因为是继承所以可以不写class    <bean id="person08"  parent="person07"> -->
+<property name="lastName" value="小么"></property>
+ </bean>
+
+</beans>

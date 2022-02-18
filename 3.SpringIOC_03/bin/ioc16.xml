@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<!-- 
+实验16：使用context:include-filter指定扫描包时要包含的类,默认全扫描.
+步骤一:先禁用默认规则 use-default-filters="false"
+步骤二:<context:include-filter type="annotation" expression=""/>,标签指定哪些加入ioc容器
+		1).type="annotation": 指定加入规则,标注了指定注解的要加入容器中
+		expression="注解全类名"
+	    <context:include-filter type="assignable"  expression="com.atguigu.service.BookService_Exper16"/>	
+		2).type="assignable": 指定加入规则,按照指定的类进行加入容器中
+		expression="全类名"	
+-->
+<context:component-scan base-package="com.atguigu" use-default-filters="false">
+<context:include-filter type="assignable"  expression="com.atguigu.service.BookService_Exper16"/>	
+</context:component-scan>
+</beans>

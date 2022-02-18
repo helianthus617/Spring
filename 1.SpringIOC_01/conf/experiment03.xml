@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 1.1 常规方式构造器注入
+public Experiment03(String lastName, Integer age, String gender,String email)
+ -->
+<bean id="exp01"  class="com.atguigu.bean.Experiment03">
+<constructor-arg name="lastName" value="小天"></constructor-arg>
+<constructor-arg name="age" value="18" ></constructor-arg>
+<constructor-arg name="email" value="zhangsan@atguigu.com" ></constructor-arg>
+<constructor-arg name="gender" value="男"></constructor-arg>
+</bean>
+<!-- 1.2索引方式进行构造器注入,索引从0开始,可省略name属性 -->
+<bean id="exp02"  class="com.atguigu.bean.Experiment03">
+<constructor-arg  value="小派"></constructor-arg>
+<constructor-arg  value="18" ></constructor-arg>
+<constructor-arg  value="男" index="3"></constructor-arg>
+<constructor-arg  value="zhangsan@atguigu.com"  index="2"></constructor-arg> 
+</bean>
+<!-- 1.3指定部分参数类型的方式进行构造器注入,解决构造器重载的情况  
+ 1,<constructor-arg的标签数量决定使用是几个参数的构造器
+ 2,Experiment03(String lastName, Integer age, String gender)
+   Experiment03(String lastName, String email, String gender)
+  -->
+<bean id="exp03"  class="com.atguigu.bean.Experiment03">
+<constructor-arg  value="小派"></constructor-arg>
+<constructor-arg  value="18" index="1"  type="java.lang.Integer"></constructor-arg>
+<constructor-arg  value="男" ></constructor-arg>
+</bean>
+<!-- 通过p名称空间为bean赋值 名称空间,在xml中名称空间是用来防止标签重复的. 
+导入名称空间 点击Namespaces-->
+<bean id="exp04"  class="com.atguigu.bean.Experiment03"
+p:age="18" p:email="xiaoli@guigu.com" p:lastName="小夏" p:gender="男">
+</bean>
+</beans>

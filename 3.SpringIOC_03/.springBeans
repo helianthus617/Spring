@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.4.0.201310051539-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>conf/ioc15.xml</config>
+		<config>conf/ioc16.xml</config>
+		<config>conf/ioc17.xml</config>
+		<config>conf/ioc18.xml</config>
+		<config>conf/ioc19.xml</config>
+		<config>conf/ioc20.xml</config>
+		<config>conf/ioc21.xml</config>
+		<config>conf/ioc22.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!--  实验9：测试bean的作用域，分别创建单实例和多实例的bean★
+ prototype 多实例
+ 	1),容器启动默认不会创建对象,获取时创建对象,每次getBean()获取都会创建new新的对象
+ singleton 默认单实例
+ 	1),在容器启动完成之前就已经创建好对象了。
+ request 在web环境下,同一次请求创建一个Bean实例
+ session 在web环境下,同一次会话创建一个Bean实例
+  -->
+<bean id="book" class="com.atguigu.bean.Book_Experiment09" scope="prototype"></bean>	
+<bean id="car" class="com.atguigu.bean.Car_Experiment09" ></bean>	
+
+
+ </beans>

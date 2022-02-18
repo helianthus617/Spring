@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<!-- 
+实验13：基于XML的自动装配
+ -->
+	<bean id="car" class="com.atguigu.bean.Car_Experiment13">
+	<property name="carName" value="auto"></property>
+	<property name="color" value="白色"></property>
+	</bean>
+	<bean id="car1" class="com.atguigu.bean.Car_Experiment13">
+	<property name="carName" value="BWM"></property>
+	<property name="color" value="白色"></property>
+	</bean>
+	<bean id="book" class="com.atguigu.bean.Book_Experiment13">
+	<property name="bookName" value="水浒传"></property>
+	<property name="author" value="XXX"></property>
+	</bean>
+	<bean id="book1" class="com.atguigu.bean.Book_Experiment13">
+	<property name="bookName" value="西游记"></property>
+	<property name="author" value="XXX"></property>
+	</bean>
+	<bean id="book2" class="com.atguigu.bean.Book_Experiment13">
+	<property name="bookName" value="红楼梦"></property>
+	<property name="author" value="XXX"></property>
+	</bean>
+	<bean id="book3" class="com.atguigu.bean.Book_Experiment13">
+	<property name="bookName" value="三国演义"></property>
+	<property name="author" value="XXX"></property>
+	</bean>
+	<!-- 按照某种规则自动装配
+		1),default/no 
+		2),byName 按照名字自动装配  
+			private Car car 以属性名作为id去容器中找到这个组件,给它赋值,找不到为NULL
+		3),byType
+			car=ioc.getBean(Car.class);
+			如果没找到则装配null
+			如果同一个类型的bean有多个,报错
+		4),constructor
+			4.1),构造器的参数都为自定义类型,且该自定义类作为组件已经加入容器
+			4.2),先按照参数的类型进行查找,如果相同类型的组件有多个,则参数名作为id继续查找,
+				存在组件的id与参数名相同则装配成功否则,装配null
+			4.3),通过构造器自动装配时,不会报异常,如果构造器装配失败则使用无参构造器进行初始化对象.
+				-->
+	<bean id="person" class="com.atguigu.bean.Person_Experiment13"
+	autowire="byName">
+	</bean>
+	<bean id="pet" class="com.atguigu.bean.Pet_Experiment13">
+	<property name="petName" value="喜糖"></property>
+	<property name="price" value="1500"></property>
+	</bean>
+</beans>

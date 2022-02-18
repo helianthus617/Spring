@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 
+实验11：测试bean的后置处理器
+ -->
+ <bean id="exp01"  class="com.atguigu.bean.Book_Experiment11"
+ destroy-method="myDestory"
+ init-method="myInit">
+<property name="bookName" value="水浒传"></property>
+</bean> 
+<!-- 将后置处理器类注册在配置文件中 -->
+<bean id="beanPostProcessor"
+  class="com.atguigu.bean.MyBeanPostProcessor_Experiment11" >
+</bean>
+</beans>
