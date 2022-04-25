@@ -1,5 +1,5 @@
 # Experiment of spring framework (declarative transaction, IOC, AOP)
-*Spring的核心知识点:ioc/aop/声明式事务 ,该实验出自尚硅谷雷丰阳老师SSM视频课程,可结合老师视频使用,也可单独使用* . <br/>
+*Spring的核心知识点:ioc/aop/声明式事务 * . <br/>
 部分实验如下(项目中有项目实验题目/代码)：<br/>
 实验1：通过IOC容器创建对象，并为属性赋值★<br/>
 实验2：根据bean的类型从IOC容器中获取bean的实例★<br/>
